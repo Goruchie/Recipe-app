@@ -2,9 +2,9 @@ require_relative "boot"
 
 require "rails"
   # removed   action_mailbox/engine, action_text/engine, active_storage/engine
+  # active_storage/engine
 %w(
   active_record/railtie
-  active_storage/engine
   action_controller/railtie
   action_view/railtie
   action_mailer/railtie
