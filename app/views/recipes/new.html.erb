@@ -1,16 +1,12 @@
 <div class="recipes-container">
-    <%= form_with model:Food do |form| %>
+    <%= form_with model:Recipe do |form| %>
   
       <%= form.text_field :name, placeholder: 'Name:', value: '' %> <br>
       <%= form.text_field :preparation_time, placeholder: 'Preparation Time:' %> <br>
       <%= form.text_field :cooking_time, placeholder: 'Cooking Time:' %> <br>
       <%= form.text_field :description, placeholder: 'Description:', value: '' %> <br>
-      <!-- <%= form.radio_button :public, :checked => false, :value => true %> -->
-      <div class="custom-control custom-switch">
-        <label class="custom-control-label" for="customSwitch1">Public: </label>
-        <%= form.check_box :active, class: "custom-control-input", id: "customSwitch1"   %>
-     </div>
-      <!-- <%= form.text_field :cooking_time, placeholder: 'Cooking Time:' %> <br> -->
+      <label class="custom-control-label" for="customSwitch1">Public: </label>
+      <%= form.check_box :public, class: "custom-control-input", id: "customSwitch1" %>
   
       <%= form.submit "Create Recipe"%>
     <% end %>

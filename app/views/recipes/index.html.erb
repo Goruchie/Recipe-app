@@ -1,15 +1,18 @@
 <div>
     <div><%= link_to "<button>Create a New recipe</button>".html_safe, new_recipe_path, class: 'add-recipe'%></div>
    <% @recipes.each_with_index do |recipe, index| %>
-       <section>
+      <%= link_to recipe_path(:id => recipe.id) do %>
+         <section>
         <div>
         <h2>Recipe <%= index + 1 %></h2>
-        <button>Remove</button>
+        <%= button_to 'Remove', delete_recipe_path(recipe.id), method: :delete, data: {turbo_method: :delete} %>
         </div>
         <div>
             <span>Description for the recipe</span>
             <p><%= recipe.description %></p>
+            <p><%= recipe.public %></p>
         </div>
-    </section>
+         </section>
+      <% end %>
    <% end %>
 </div>
