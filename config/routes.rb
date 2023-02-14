@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: "foods#index"
-  get '/foods', to: 'foods#create', as: 'food_create'
+  # get '/foods', to: 'foods#create', as: 'food_create'
   # get '/foods/new', to: 'foods#new', as: 'food_new'
   
   
