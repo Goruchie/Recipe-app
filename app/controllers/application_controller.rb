@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   #     u.permit(:name, :bio, :email, :password, :current_password, :role)
   #   end
   # end
+
+  def current_user
+    User.first.id
+  end
 end

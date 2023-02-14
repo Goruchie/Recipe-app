@@ -1,0 +1,15 @@
+<div>
+    <div><%= link_to "<button>Create a New recipe</button>".html_safe, new_recipe_path, class: 'add-recipe'%></div>
+   <% @recipes.each_with_index do |recipe, index| %>
+       <section>
+        <div>
+        <h2>Recipe <%= index + 1 %></h2>
+        <button>Remove</button>
+        </div>
+        <div>
+            <span>Description for the recipe</span>
+            <p><%= recipe.description %></p>
+        </div>
+    </section>
+   <% end %>
+</div>
