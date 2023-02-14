@@ -16,11 +16,6 @@ class FoodsController < ApplicationController
     redirect_to root_path
   end
 
-  #   def show
-  #     @food = Food.find(params[:id])
-  #     @user = User.find(params[:user_id])
-  #   end
-
   def destroy
     @food = Food.find(params[:id])
     # @user = @post.author_id
