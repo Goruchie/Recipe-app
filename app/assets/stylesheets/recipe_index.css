@@ -1,0 +1,18 @@
+.add-recipe {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.recipe-div {
+  border: 1px solid black;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.recipes-container {
+  display: grid;
+  gap: 1em;
+  padding: 4em;
+}
