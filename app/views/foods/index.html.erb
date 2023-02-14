@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+<div><%= link_to "<button>Add Food</button>".html_safe, new_food_path, class: 'add-food'%></div>
+<div>
+<table>
+  <tr>
+    <th>Food</th>
+    <th>Measurement Unit</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+  <% @food.each do |f| %>
+    <tr>
+      <td><%= f.name%></td>
+      <td><%= f.measurement_unit %></td>
+      <td><%= f.price %></td>
+      <td><%= button_to 'Delete', food_path(f.id), method: :delete, data: {turbo_method: :delete} %></td>
+    </tr>
+  <%end%>
+</table>
+</div>
