@@ -1,12 +1,8 @@
-<div class="foods-container">
-<%= form_with model:Food do |form| %>
-  
-  <%= form.text_field :price, placeholder: 'Price:' %> <br>
-  <%= form.text_field :name, placeholder: 'Name:' %> <br>
-  <%= form.text_field :measurement_unit, placeholder: 'Measurement Unit:' %> <br>
-
-  <%= form.submit "Create Food"%>
-<% end %>
-  <p><%= @food.name %></p>
+<%= render "shared/header" %>
+<div><%= link_to "<button>Add Food</button>".html_safe, new_food_path, class: 'add-food'%></div>
+<div>
+<% @food.each do |f| %>
+  <span><%= f.name%></span>
+  <span><%= f.measurement_unit %></span>
+<%end%>
 </div>
-

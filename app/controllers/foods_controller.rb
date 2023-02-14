@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
     def index
-        @food = Food.all
-      end
+      @food = Food.all
+    end
     
       def new
         @food = Food.new
@@ -14,19 +14,19 @@ class FoodsController < ApplicationController
         redirect_to foods_path(current_user.id)
       end
     
-      def show
-        @food = Food.find(params[:id])
-        @user = User.find(params[:user_id])
-      end
+    #   def show
+    #     @food = Food.find(params[:id])
+    #     @user = User.find(params[:user_id])
+    #   end
     
-      def destroy
-        @food = Food.find(params[:id])
-        @user = @post.author_id
-        @food.destroy
-        redirect_to food_path_path(@user)
-      end
+    #   def destroy
+    #     @food = Food.find(params[:id])
+    #     @user = @post.author_id
+    #     @food.destroy
+    #     redirect_to food_path_path(@user)
+    #   end
     
-      def food_params
-        params.require(:food).permit(:name, :measurement_unit, :price)
-      end
+    #   def food_params
+    #     params.require(:food).permit(:name, :measurement_unit, :price)
+    #   end
 end
