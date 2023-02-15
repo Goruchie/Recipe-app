@@ -1,0 +1,15 @@
+<div class="recipes-container">
+  <h1>Public Recipes</h1>
+  <% @public_recipes.each do |public_recipe| %>
+    <section class='recipe-div'>
+      <div class="recipe-title">
+        <span><%= public_recipe.name %></span>
+        <span>By <%= public_recipe.users.name %></span>
+      </div>
+      <div class="recipe-content">
+          <span>Total Food Items X</span>
+          <p>Total Price <%= Recipe.total_amount(public_recipe) %>$</p>
+      </div>
+    </section>
+  <%end%>
+</div>

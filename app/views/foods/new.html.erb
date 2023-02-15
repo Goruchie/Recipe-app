@@ -3,7 +3,7 @@
 
     <%= form.text_field :name, placeholder: 'Name:', value: '' %> <br>
     <%= form.text_field :measurement_unit, placeholder: 'Measurement Unit:' %> <br>
-    <%= form.text_field :price, placeholder: 'Price:' %> <br>
+    <%= form.number_field :price, placeholder: 'Price:', in: 1.0..100.0  %> <br>
 
     <%= form.submit "Create Food"%>
   <% end %>
