@@ -2,10 +2,17 @@
   <h1>Recipe <%= @recipe.name %> </h1>
   <span>Cooking Time: <%= @recipe.cooking_time %> </span>
   <span>Preparation Time: <%= @recipe.preparation_time %> </span>
+  <label for="checkbox">Public</label>
+
+    <% if @recipe.public %>
+  <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-danger shadow"  %>
+  <% else %>
+    <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-success shadow"  %>
+  <% end %>
   <p>Description: <%= @recipe.description %> </p>
   <% if can? :create, @recipe %>
-  <button>Generate shopping list</button>
-  <button class="click_btn">Add ingredient</button>
+    <button>Generate shopping list</button>
+    <button class="click_btn">Add ingredient</button>
   <% end %>
 </div>
 <div>
