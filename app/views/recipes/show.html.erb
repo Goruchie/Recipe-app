@@ -6,6 +6,27 @@
   <button>Generate shopping list</button>
   <button class="click_btn">Add ingredient</button>
 </div>
+<div>
+    <table>
+  <tr>
+    <th>Food</th>
+    <th>Quantity</th>
+    <th>Value</th>
+    <th>Actions</th>
+  </tr>
+  <% @recipe_foods.each do |recipe_food| %>
+    <tr>
+      <td><%= recipe_food.foods.name%></td>
+      <td><%= recipe_food.quantity%></td>
+      <td>X</td>
+      <td>
+        <%= button_to 'Modify', food_path(recipe_food.id), method: :delete, data: {turbo_method: :delete} %>
+        <%= button_to 'Delete', food_path(recipe_food.id), method: :delete, data: {turbo_method: :delete} %>
+      </td>
+    </tr>
+  <%end%>
+</table>
+</div>
 <div class="modal">
   <div class="modal-content">
   <button class="close_btn">X</button>
