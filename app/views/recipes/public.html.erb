@@ -8,7 +8,7 @@
       </div>
       <div class="recipe-content">
           <span>Total Food Items X</span>
-          <p>Total Price <%= public_recipe.description %></p>
+          <p>Total Price <%= Recipe.total_amount(public_recipe) %>$</p>
       </div>
     </section>
   <%end%>
