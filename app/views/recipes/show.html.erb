@@ -1,1 +1,39 @@
-<h1>Recipe <%= @recipe.id %> </h1>
+<div>
+  <h1>Recipe <%= @recipe.name %> </h1>
+  <span>Cooking Time: <%= @recipe.cooking_time %> </span>
+  <span>Preparation Time: <%= @recipe.preparation_time %> </span>
+  <p>Description: <%= @recipe.description %> </p>
+  <button>Generate shopping list</button>
+  <button class="click_btn">Add ingredient</button>
+</div>
+<div class="modal">
+  <div class="modal-content">
+  <button class="close_btn">X</button>
+  <div>
+    <span>Select an ingredient:</span>
+    <%= render 'recipes_food'%>
+  </div>
+</div>
+
+
+
+
+
+<script>
+  document.querySelector('.click_btn').addEventListener('click', (event) => {
+    document.querySelector('.modal').style.visibility = 'visible'
+    document.querySelector('#body').style.overflow = 'hidden'
+  })
+
+  document.querySelector('.close_btn').addEventListener('click', (event) => {
+    document.querySelector('.modal').style.visibility = 'hidden'
+    document.querySelector('#body').style.overflow = 'scroll'
+  })
+
+//   document.querySelectorAll('.modal-contents > div:first-of-type > span').forEach(element => {
+//     element.addEventListener('click', () => {
+//     document.querySelector('.recipe-modal').style.display = 'none'
+//     document.querySelector('.shopping-modal').style.display = 'none'
+//   })
+// })
+</script>

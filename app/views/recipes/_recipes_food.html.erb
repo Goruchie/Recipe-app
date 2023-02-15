@@ -1,0 +1,5 @@
+<%= form_with url: recipe_recipes_food_index_path(params[:id]), scope: :recipe_foods do |form| %>
+  <%= form.text_field :quantity%>
+  <%= form.select :food_id, @foods.collect { |food| [food.name, food.id] }, { :prompt => 'Choose Food'}, class: "form-select", required: true %>
+  <%= form.submit "Add"%>
+<%end%>

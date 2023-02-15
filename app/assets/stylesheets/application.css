@@ -30,3 +30,7 @@ button {
   border: 1px solid black;
   cursor: pointer;
 }
+
+.main-container {
+  padding: 2em;
+}

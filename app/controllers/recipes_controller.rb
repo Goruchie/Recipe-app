@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
     
     def create
         @recipe = Recipe.new(recipe_params)
-        @recipe.user_id = current_user
+        @recipe.user_id = current_user.id
         return unless @recipe.save!
         flash.now[:notice] = 'Recipe created successfully'
         redirect_to recipes_path
@@ -24,7 +24,7 @@ class RecipesController < ApplicationController
 
     def show
         @recipe = Recipe.find(params[:id])
-        # @recipe_food = RecipeFood.includes(:user => @recipe.user_id).where(food_id: , recipe_id: @recipe)
+        @foods = Food.all
     end
 
     def recipe_params
