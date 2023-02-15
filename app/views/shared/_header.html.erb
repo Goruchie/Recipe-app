@@ -1,4 +1,5 @@
 <nav>
+  <%= current_user.email %>
   <%= link_to "Recipes", recipes_path, class: 'btn' %>
   <%= link_to "Food", foods_index_path, class: 'btn' %>
   <button>Inventory</button>

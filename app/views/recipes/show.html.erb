@@ -2,9 +2,18 @@
   <h1>Recipe <%= @recipe.name %> </h1>
   <span>Cooking Time: <%= @recipe.cooking_time %> </span>
   <span>Preparation Time: <%= @recipe.preparation_time %> </span>
+  <label for="checkbox">Public</label>
+
+    <% if @recipe.public %>
+  <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-danger shadow"  %>
+  <% else %>
+    <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-success shadow"  %>
+  <% end %>
   <p>Description: <%= @recipe.description %> </p>
-  <button>Generate shopping list</button>
-  <button class="click_btn">Add ingredient</button>
+  <% if can? :create, @recipe %>
+    <button>Generate shopping list</button>
+    <button class="click_btn">Add ingredient</button>
+  <% end %>
 </div>
 <div>
     <table>
@@ -20,12 +29,19 @@
       <td><%= recipe_food.quantity%></td>
       <td><%= recipe_food.quantity * recipe_food.foods.price %>$</td>
       <td>
+
+
+       
       <%# Not working yet %>
+      <% if can? :edit, @recipe %>
         <%= button_to 'Modify', food_path(recipe_food.id), method: :delete, data: {turbo_method: :delete} %>
+      <% end %>
+      <% if can? :destroy, @recipe %>
         <%= button_to 'Delete', food_path(recipe_food.id), method: :delete, data: {turbo_method: :delete} %>
+      <% end %>
       </td>
     </tr>
-  <%end%>
+  <% end %>
 </table>
 </div>
 <div class="modal">
