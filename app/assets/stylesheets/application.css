@@ -31,6 +31,12 @@ button {
   cursor: pointer;
 }
 
+.btn {  
+  padding: 0.8em;
+  border: 1px solid black;
+  cursor: pointer;  
+}
+
 .main-container {
   padding: 2em;
 }

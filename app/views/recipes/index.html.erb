@@ -6,8 +6,8 @@
         <div class="recipe-title">
         <h2>Recipe <%= index + 1 %></h2>
         <%= button_to 'Remove', delete_recipe_path(recipe.id), method: :delete, data: {turbo_method: :delete} %>
-        </div class="recipe-content">
-        <div>
+        </div>
+        <div class="recipe-content">
             <span>Description for the recipe</span>
             <p><%= recipe.description %></p>
         </div>
