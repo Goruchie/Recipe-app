@@ -37,7 +37,7 @@
   width: 35%;
 }
 
-.modal:before {
+.modal::before {
   content: "";
   position: fixed;
   top: 0;
