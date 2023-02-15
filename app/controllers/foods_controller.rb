@@ -13,12 +13,11 @@ class FoodsController < ApplicationController
     return unless @food.save!
 
     flash.now[:notice] = 'Food created successfully'
-    redirect_to root_path
+    redirect_to foods_path
   end
 
   def destroy
     @food = Food.find(params[:id])
-    # @user = @post.author_id
     @food.destroy
     redirect_to root_path
   end

@@ -16,4 +16,11 @@ class RecipesFoodController < ApplicationController
   def recipe_foods_params
     params.require(:recipe_foods).permit(:food_id, :quantity)
   end
+
+  def destroy
+    @recipe_food = RecipeFood.find(params[:id])
+    # @user = @post.author_id
+    @recipe_food.destroy
+    redirect_back(fallback_location: root_path)
+  end
 end
