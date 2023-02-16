@@ -1,0 +1,17 @@
+<h1>Shopping lists</h1>
+
+<h1>Recipe: <%= @recipe_id.name%></h1>
+<h1>Inventory: <%= @inventory_id.name%></h1>
+
+
+<% @recipe_foods.each do |recipe| %>
+  <% food_name = recipe.foods.name %>
+  <% food_quantity = recipe.quantity %>
+  <% food_unit_price = recipe.foods.price %>
+  <% inventory_food_names = @inventory_foods.map { |inventory| inventory.foods.name } %>
+  <% if !inventory_food_names.include?(food_name) %>
+    <p><%= food_name %></p>
+    <p><%= food_quantity %></p>
+   <p><%= food_quantity * food_unit_price %></p>
+  <% end %>
+<% end %>

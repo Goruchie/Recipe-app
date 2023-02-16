@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
   has_many :recipe_foods
+  has_many :shopping_lists
   belongs_to :users, foreign_key: 'user_id', class_name: 'User'
 
   def self.total_amount(recipe)

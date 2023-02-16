@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   
   get '/foods', to: 'foods#index', as: 'foods_index'
+  get '/shopping_lists/:recipe_id/:inventory_id', to: 'shopping_lists#index', as: 'shopping_list'
   get '/public_recipes', to: 'recipes#public', as: 'public_recipes'
   delete '/recipes/:id', to: 'recipes#destroy', as: 'delete_recipe'
   delete '/inventories/:id', to: 'inventories#destroy', as: 'delete_inventory'
