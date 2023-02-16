@@ -1,5 +1,4 @@
 class ShoppingListsController < ApplicationController
-
   # GET /shopping_lists or /shopping_lists.json
   def index
     @recipe_id = Recipe.find(params[:recipe_id])
