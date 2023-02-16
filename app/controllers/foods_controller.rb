@@ -9,7 +9,6 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-    # @food.id = current_user.id
     return unless @food.save!
 
     flash.now[:notice] = 'Food created successfully'

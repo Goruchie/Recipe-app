@@ -1,4 +1,4 @@
-<%= form_with url: recipe_recipes_food_index_path(params[:id]), scope: :recipe_foods, class: 'modal-form' do |form| %>
+<%= form_with url: inventory_inventory_food_index_path(params[:id]), scope: :inventory_foods, class: 'modal-form' do |form| %>
   <%= form.label :quantity %>
   <%= form.number_field :quantity, in: 1.0..100.0%>
   <%= form.label :food_id %>
