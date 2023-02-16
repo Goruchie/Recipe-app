@@ -1,0 +1,43 @@
+.Inventories-show-body {
+  padding: 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.show-header {
+  padding: 5px 80px 5px 80px;
+  border-bottom: 1px solid #000;
+}
+
+.show-header h1 {
+  text-align: center;
+}
+
+.add-food-btn-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.show-table-container {
+  border: 2px solid #000;
+}
+
+.show-table-container table {
+  width: 100%;
+}
+
+.show-table-container table tbody {
+  border: 2px solid #000;
+}
+
+.show-table-container table tr th {
+  text-align: left;
+}
+
+.show-table-container table tr td button {
+  border: none;
+  background: inherit;
+  text-decoration: underline;
+}

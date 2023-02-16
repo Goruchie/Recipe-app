@@ -1,0 +1,32 @@
+.inventories-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 100px;
+}
+
+.create-inventory-btn-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.inventories-container {
+  display: grid;
+  grid-template-columns: 1.5fr 3.5fr;
+  border: 1px solid #000;
+}
+
+.inventory-name-btn-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inventory-name-btn-div button {
+  width: fit-content;
+  background-color: inherit;
+  border: none;
+  text-decoration: underline;
+}

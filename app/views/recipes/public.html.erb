@@ -1,15 +1,17 @@
-<div class="recipes-container">
-  <h1>Public Recipes</h1>
+<div class="public-recipes-container">
+  <h1 class="public-recipes-header">Public Recipes</h1>
   <% @public_recipes.each do |public_recipe| %>
-    <section class='recipe-div'>
-      <div class="recipe-title">
-        <span><%= public_recipe.name %></span>
-        <span>By <%= public_recipe.users.name %></span>
+  <%= link_to recipe_path(:id => public_recipe.id) do %>
+    <section class='public-recipe-div'>
+      <div class="public-recipe-title">
+        <h1><%= public_recipe.name %></h1>
+        <h2>By: <%= public_recipe.users.name %></h2>
       </div>
-      <div class="recipe-content">
-          <span>Total Food Items X</span>
-          <p>Total Price <%= Recipe.total_amount(public_recipe) %>$</p>
+      <div class="public-recipe-content">
+          <h1>Total Food items: X</h1>
+          <p>Total Price: $<%= Recipe.total_amount(public_recipe) %></p>
       </div>
     </section>
+    <%end%>
   <%end%>
 </div>

@@ -1,0 +1,7 @@
+<div class="foods-container">
+    <%= form_with model:Inventory do |form| %>
+  
+      <%= form.text_field :name, placeholder: 'Name:', value: '' %> <br>
+      <%= form.submit "Create Inventory"%>
+    <% end %>
+  </div>

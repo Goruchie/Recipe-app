@@ -1,21 +1,29 @@
-<div>
-  <h1>Recipe <%= @recipe.name %> </h1>
-  <span>Cooking Time: <%= @recipe.cooking_time %> </span>
-  <span>Preparation Time: <%= @recipe.preparation_time %> </span>
-  <label for="checkbox">Public</label>
-
-    <% if @recipe.public %>
-  <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-danger shadow"  %>
-  <% else %>
-    <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-success shadow"  %>
-  <% end %>
-  <p>Description: <%= @recipe.description %> </p>
+<div class="recipes-show-mother-container">
+<section class="recipe-show-container">
+  <h1 class="recipe-show-header">Recipe <%= @recipe.name %> </h1>
+  <div class="public-btn-header-div">
+    <h1>Preparation Time: <%= @recipe.preparation_time %> </h1>
+    <section class="public-btn-div">
+      <h3 class="public-private-label">Public</h3>
+      <% if @recipe.public %>
+        <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn"  %>
+      <% else %>
+        <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn"  %>
+      <% end %>
+    </section>
+  </div>
+  <div class="cooktime-desc-btn-div">
+   <h2>Cooking Time: <%= @recipe.cooking_time %> </h2>
+   <p>Description: <%= @recipe.description %> </p>
+   <section class="shoppinglist-ingredient-btn-div">
   <% if can? :create, @recipe %>
     <button>Generate shopping list</button>
     <button class="click_btn">Add ingredient</button>
   <% end %>
-</div>
-<div>
+  </section>
+  </div>
+</section>
+<section class="show-table-container">
     <table>
   <tr>
     <th>Food</th>
@@ -29,28 +37,24 @@
       <td><%= recipe_food.quantity%></td>
       <td><%= recipe_food.quantity * recipe_food.foods.price %>$</td>
       <td>
-
-
-       
-      <%# Not working yet %>
       <% if can? :edit, @recipe %>
-        <%= button_to 'Modify', food_path(recipe_food.id), method: :delete, data: {turbo_method: :delete} %>
+        <button>Modify</button>
       <% end %>
       <% if can? :destroy, @recipe %>
-        <%= button_to 'Delete', food_path(recipe_food.id), method: :delete, data: {turbo_method: :delete} %>
+        <%= button_to 'Delete', delete_recipe_food_path(recipe_food.id), method: :delete, data: {turbo_method: :delete} %>
       <% end %>
       </td>
     </tr>
   <% end %>
 </table>
-</div>
-<div class="modal">
+</section>
+<section class="modal">
   <div class="modal-content">
-  <button class="close_btn">X</button>
-  <div>
+    <button class="close_btn">X</button>
     <span>Select an ingredient:</span>
     <%= render 'recipes_food'%>
   </div>
+</section>
 </div>
 
 

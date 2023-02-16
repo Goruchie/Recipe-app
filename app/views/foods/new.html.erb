@@ -1,8 +1,10 @@
 <div class="foods-container">
   <%= form_with model:Food do |form| %>
-
+    <%= form.label :name %>:
     <%= form.text_field :name, placeholder: 'Name:', value: '' %> <br>
+    <%= form.label :measurement_unit %>:
     <%= form.text_field :measurement_unit, placeholder: 'Measurement Unit:' %> <br>
+    <%= form.label :price %>:
     <%= form.number_field :price, placeholder: 'Price:', in: 1.0..100.0  %> <br>
 
     <%= form.submit "Create Food"%>
