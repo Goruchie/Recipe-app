@@ -21,6 +21,6 @@ class RecipesFoodController < ApplicationController
     @recipe_food = RecipeFood.find(params[:id])
     # @user = @post.author_id
     @recipe_food.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_to root_path
   end
 end
