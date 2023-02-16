@@ -9,7 +9,13 @@ class InventoriesFoodController < ApplicationController
         redirect_back(fallback_location: root_path)
     end
 
-    def recipe_foods_params
-        params.require(:inventories_food).permit(:food_id, :quantity)
+    def destroy
+        @inventory_food = InventoryFood.find(params[:id])
+        @inventory_food.destroy
+        redirect_back(fallback_location: root_path)
+    end
+
+    def inventory_foods_params
+        params.require(:inventory_foods).permit(:food_id, :quantity)
     end
 end

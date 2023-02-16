@@ -17,7 +17,7 @@
    <p>Description: <%= @recipe.description %> </p>
    <section class="shoppinglist-ingredient-btn-div">
   <% if can? :create, @recipe %>
-    <button>Generate shopping list</button>
+    <button class="gen_shopping_btn">Generate shopping list</button>
     <button class="click_btn">Add ingredient</button>
   <% end %>
   </section>
@@ -55,6 +55,13 @@
     <%= render 'recipes_food'%>
   </div>
 </section>
+<section class="modal_shopping">
+  <div class="modal-content">
+    <button class="shopping_close_btn">X</button>
+    <span>Generating Shopping List:</span>
+    <%= render 'shopping_list'%>
+  </div>
+</section>
 </div>
 
 
@@ -69,6 +76,17 @@
 
   document.querySelector('.close_btn').addEventListener('click', (event) => {
     document.querySelector('.modal').style.visibility = 'hidden'
+    document.querySelector('#body').style.overflow = 'scroll'
+  })
+
+  // For shopping List
+  document.querySelector('.gen_shopping_btn').addEventListener('click', (event) => {
+    document.querySelector('.modal_shopping').style.visibility = 'visible'
+    document.querySelector('#body').style.overflow = 'hidden'
+  })
+
+  document.querySelector('.shopping_close_btn').addEventListener('click', (event) => {
+    document.querySelector('.modal_shopping').style.visibility = 'hidden'
     document.querySelector('#body').style.overflow = 'scroll'
   })
 

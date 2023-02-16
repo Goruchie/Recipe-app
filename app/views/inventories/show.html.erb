@@ -17,7 +17,7 @@
               <td><%= inventory.foods.name %></td>
               <td><%= inventory.quantity %></td>
               <td>
-                <button>Remove</button>
+                <%= button_to "Remove", delete_inventory_food_path(inventory.id), method: :delete, data: {turbo_method: :delete} %>
               </td>
           </tr>
           <% end %>

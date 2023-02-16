@@ -5,13 +5,14 @@ Rails.application.routes.draw do
   end
 
   resources :inventories, only: [:new, :show, :index, :create] do
-    resources :inventory_food, only: [:create, :destroy, :update]
+    resources :inventories_food, only: [:create, :update]
   end
   
   get '/foods', to: 'foods#index', as: 'foods_index'
   get '/public_recipes', to: 'recipes#public', as: 'public_recipes'
   delete '/recipes/:id', to: 'recipes#destroy', as: 'delete_recipe'
   delete '/inventories/:id', to: 'inventories#destroy', as: 'delete_inventory'
+  delete '/inventories/:id/inventory_food/:id', to: 'inventories_food#destroy', as: 'delete_inventory_food'
   delete '/recipes/:recipe_id/recipes_food/:id', to: 'recipes_food#destroy', as: 'delete_recipe_food'
   match '/recipes/:id' => 'recipes#toggle_public', as: :toggle_public, via: :patch
 
