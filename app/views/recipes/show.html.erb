@@ -4,11 +4,9 @@
   <span>Preparation Time: <%= @recipe.preparation_time %> </span>
   <label for="checkbox">Public</label>
 
-    <% if @recipe.public %>
   <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-danger shadow"  %>
-  <% else %>
-    <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-success shadow"  %>
-  <% end %>
+  <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-success shadow"  %>
+
   <p>Description: <%= @recipe.description %> </p>
   <% if can? :create, @recipe %>
     <button>Generate shopping list</button>
