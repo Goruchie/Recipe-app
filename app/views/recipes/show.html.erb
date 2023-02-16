@@ -5,8 +5,11 @@
     <h1>Preparation Time: <%= @recipe.preparation_time %> </h1>
     <section class="public-btn-div">
       <h3 class="public-private-label">Public</h3>
-      <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn"  %>
-      <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn"  %>
+      <% if @recipe.public %>
+        <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn"  %>
+      <% else %>
+        <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn"  %>
+      <% end %>
     </section>
   </div>
   <div class="cooktime-desc-btn-div">

@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
     return unless @food.save!
 
     flash.now[:notice] = 'Food created successfully'
-    redirect_to foods_path
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy

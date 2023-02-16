@@ -10,6 +10,11 @@
   </head>
 
   <body id="body">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+    <%= value %>
+      </div>
+   <% end %>
     <% if !user_signed_in? %>
       <%= render "shared/header_new_user" %>
     <%end%>
