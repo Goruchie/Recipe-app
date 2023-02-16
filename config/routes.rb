@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :inventories, only: [:new, :show, :index, :create] do
     resources :inventories_food, only: [:create, :update]
   end
-  
+  get '/shopping_lists/:recipe_id', to: 'shopping_lists#index', as: 'shopping_list'
   get '/foods', to: 'foods#index', as: 'foods_index'
-  get '/shopping_lists/:recipe_id/:inventory_id', to: 'shopping_lists#index', as: 'shopping_list'
+  # get '/shopping_lists/:recipe_id/:inventory_id', to: 'shopping_lists#index', as: 'shopping_list'
   get '/public_recipes', to: 'recipes#public', as: 'public_recipes'
   delete '/recipes/:id', to: 'recipes#destroy', as: 'delete_recipe'
   delete '/inventories/:id', to: 'inventories#destroy', as: 'delete_inventory'
