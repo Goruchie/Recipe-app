@@ -1,4 +1,16 @@
+<section class="devise-login-container">
 <h2>Log in</h2>
+<p class="prompt-code-reviewer">
+  For the sake of testing please log in with:
+  <br>
+  <br>
+  <strong>User: user@example.com
+  <br>
+  Pass: password</strong>
+  <br>
+  <br>
+  Please don't forget to run "rails db:seed" command first.
+</p>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -24,3 +36,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</section>

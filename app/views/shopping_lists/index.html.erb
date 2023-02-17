@@ -1,13 +1,18 @@
-<h1>Shopping lists</h1>
-
-<section>
-    <div class="top-container">
-      <section>
+<div class="shopping-list-mother-div">
+  <h1>Shopping lists</h1>
+  <section>
       <% hash = ShoppingList.total_amount(@recipe_foods, @inventory_foods) %>
-        <p>Amount of food to buy: <%= hash[:recipe_food_values_count] %> </p>
-        <p>Total value of food needed: <%= hash[:total_amount] %></p>
-        <p>Recipe <%= @recipe_name.name %></p>
-        <p>Inventory <%= @inventory_name.name %></p>
+      <div class="shopping-list-top-div">
+        <section>
+          <p>Amount of food to buy: <%= hash[:recipe_food_values_count] %> </p>
+          <p>Total value of food needed: $<%= hash[:total_amount] %></p>
+        </section>
+        <section>
+          <p>Recipe: <%= @recipe_name.name %></p>
+          <p>Inventory: <%= @inventory_name.name %></p>
+        </section>
+      </div>
+      <div class="shopping-list-table-div">
         <table>
           <tr>
             <th>Food</th>
@@ -20,8 +25,8 @@
             <td><%= key[:quantity] %></td>
             <td><%= key[:value] %></td>
           <tr>
-          <%end%>
+        <%end%>
         </table>
-      </section>
-    </div>
-</section>
+      </div>
+  </section>
+</div>

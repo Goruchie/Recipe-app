@@ -14,7 +14,7 @@
   </div>
   <div class="cooktime-desc-btn-div">
    <h2>Cooking Time: <%= @recipe.cooking_time %> </h2>
-   <p>Description: <%= @recipe.description %> </p>
+   <p> <%= @recipe.description %> </p>
    <section class="shoppinglist-ingredient-btn-div">
   <% if can? :create, @recipe %>
     <button class="gen_shopping_btn">Generate shopping list</button>
@@ -58,8 +58,8 @@
 <section class="modal_shopping">
   <div class="modal-content">
     <button class="shopping_close_btn">X</button>
-    <span>Generating Shopping List:</span>
-    <span>Choose an inventory to use:</span>
+    <h1>Generating Shopping List:</h1>
+    <p>Choose an inventory to use:</p>
     <%= render 'shopping_list'%>
   </div>
 </section>

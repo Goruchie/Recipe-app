@@ -40,3 +40,36 @@ button {
 .main-container {
   padding: 2em;
 }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.generate-shopping-list-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal_shopping .modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.see-inventories {
+  min-width: 80%;
+}
+
+.prompt-code-reviewer {
+  border: 2px dotted red;
+  width: 200px;
+}
+
+.devise-login-container {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+}

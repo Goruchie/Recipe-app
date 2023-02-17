@@ -23,3 +23,9 @@
   background-color: rebeccapurple;
   height: 50vh;
 }
+
+.recipe-index-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
