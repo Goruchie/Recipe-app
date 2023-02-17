@@ -5,7 +5,7 @@ class ShoppingList < ApplicationRecord
   def self.total_amount(recipe, inventory)
     total_amount = 0
     recipe_food_values = []
-  
+
     recipe.each do |recipe_food|
       inventory.each do |inventory_food|
         if !inventory_food.foods.name.include?(recipe_food.foods.name)
@@ -14,7 +14,7 @@ class ShoppingList < ApplicationRecord
           recipe_food_values << {
             name: recipe_food.foods.name,
             quantity: recipe_food.quantity,
-            value: value
+            value:
           }
         elsif inventory_food.foods.name == recipe_food.foods.name
           if inventory_food.quantity.to_i >= recipe_food.quantity.to_i
@@ -23,32 +23,28 @@ class ShoppingList < ApplicationRecord
             recipe_food_values << {
               name: recipe_food.foods.name,
               quantity: recipe_food.quantity,
-              value: value
+              value:
             }
           else
             value = recipe_food.foods.price * inventory_food.quantity.to_i
             total_amount += value
-            recipe_food_values << {
+            recipe_food_values << ({
               name: recipe_food.foods.name,
               quantity: inventory_food.quantity.to_i,
-              value: value
-            }
+              value:
+            })
             recipe_food.quantity -= inventory_food.quantity.to_i
           end
         end
       end
     end
-  
+
     unique_recipe_food_values = recipe_food_values.uniq { |rfv| rfv[:name] }
     {
       recipe_food_values: unique_recipe_food_values,
-      total_amount: total_amount,
+      total_amount:,
       recipe_food_values_count: unique_recipe_food_values.size,
       recipe_quantity: recipe_food_values.sum { |rfv| rfv[:quantity] }
     }
   end
-  
-  
-  
-  
 end
