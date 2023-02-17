@@ -38,7 +38,7 @@ class RecipesController < ApplicationController
   end
 
   def toggle_public
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(:users).find(params[:id])
     @recipe.public = !@recipe.public
 
     redirect_to recipe_path(@recipe.id), notice: 'Recipe updated' if @recipe.save

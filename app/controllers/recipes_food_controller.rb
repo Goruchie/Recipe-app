@@ -14,7 +14,7 @@ class RecipesFoodController < ApplicationController
   end
 
   def destroy
-    @recipe_food = RecipeFood.find(params[:recipe_food_id])
+    @recipe_food = RecipeFood.includes(:foods, :recipes).find(params[:recipe_food_id])
     @recipe_food.destroy
     redirect_back(fallback_location: root_path)
   end
