@@ -13,13 +13,12 @@ class RecipesFoodController < ApplicationController
     @recipe_foods = RecipeFood.where(recipe_id: params[:id])
   end
 
-  
   def destroy
     @recipe_food = RecipeFood.find(params[:recipe_food_id])
     @recipe_food.destroy
     redirect_back(fallback_location: root_path)
   end
-  
+
   def recipe_foods_params
     params.require(:recipe_foods).permit(:food_id, :quantity)
   end
