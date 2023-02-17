@@ -1,17 +1,27 @@
 <h1>Shopping lists</h1>
 
-<h1>Recipe: <%= @recipe_id.name%></h1>
-<h1>Inventory: <%= @inventory_id.name%></h1>
-
-
-<% @recipe_foods.each do |recipe| %>
-  <% food_name = recipe.foods.name %>
-  <% food_quantity = recipe.quantity %>
-  <% food_unit_price = recipe.foods.price %>
-  <% inventory_food_names = @inventory_foods.map { |inventory| inventory.foods.name } %>
-  <% if !inventory_food_names.include?(food_name) %>
-    <p><%= food_name %></p>
-    <p><%= food_quantity %></p>
-   <p><%= food_quantity * food_unit_price %></p>
-  <% end %>
-<% end %>
+<section>
+    <div class="top-container">
+      <section>
+      <% hash = ShoppingList.total_amount(@recipe_foods, @inventory_foods) %>
+        <p>Amount of food to buy: <%= hash[:recipe_food_values_count] %> </p>
+        <p>Total value of food needed: <%= hash[:total_amount] %></p>
+        <p>Recipe <%= @recipe_name.name %></p>
+        <p>Inventory <%= @inventory_name.name %></p>
+        <table>
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+          <% hash[:recipe_food_values].each do |key| %>
+          <tr>
+            <td><%= key[:name] %></td>
+            <td><%= key[:quantity] %></td>
+            <td><%= key[:value] %></td>
+          <tr>
+          <%end%>
+        </table>
+      </section>
+    </div>
+</section>

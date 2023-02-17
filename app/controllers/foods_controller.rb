@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @food = Food.all
+    @foods = Food.all
   end
 
   def new
@@ -12,13 +12,13 @@ class FoodsController < ApplicationController
     return unless @food.save!
 
     flash.now[:notice] = 'Food created successfully'
-    redirect_back(fallback_location: root_path)
+    redirect_to foods_path
   end
 
   def destroy
     @food = Food.find(params[:id])
     @food.destroy
-    redirect_to root_path
+    redirect_to foods_path
   end
 
   def food_params
