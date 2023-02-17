@@ -27,6 +27,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @foods = Food.all
     @recipe_foods = RecipeFood.where(recipe_id: params[:id])
+    @inventories = Inventory.all
   end
 
   def public

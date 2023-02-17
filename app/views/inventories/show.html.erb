@@ -1,6 +1,6 @@
 <div class="Inventories-show-body">
     <section class="show-header">
-        <h1>Inventory 1</h1>
+        <h1><%= @inventory.name %></h1>
         <div class="add-food-btn-div">
             <button class="click-btn-inventory-food">Add Food</button>
         </div>
@@ -12,13 +12,15 @@
             <th>Quantity</th>
             <th>Actions</th>
           </tr>
+          <% @inventory_foods.each do |inventory| %>
           <tr>
-              <td>Apple</td>
-              <td>1kg</td>
+              <td><%= inventory.foods.name %></td>
+              <td><%= inventory.quantity %></td>
               <td>
-                <button>Remove</button>
+                <%= button_to "Remove", delete_inventory_food_path(inventory.id), method: :delete, data: {turbo_method: :delete} %>
               </td>
-            </tr>
+          </tr>
+          <% end %>
         </table>
     </section>
 </div>

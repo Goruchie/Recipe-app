@@ -60,7 +60,8 @@
   box-shadow: 3px 5px 5px #000;
 }
 
-.close_btn {
+.close_btn,
+.shopping_close_btn {
   align-self: flex-end;
   padding: 0.5em;
   margin-bottom: 1em;
@@ -73,7 +74,8 @@
   margin-top: 1em;
 }
 
-.modal {
+.modal,
+.modal_shopping {
   visibility: hidden;
   position: fixed;
   top: 0;
@@ -99,7 +101,8 @@
   width: 35%;
 }
 
-.modal::before {
+.modal::before,
+.modal_shopping::before {
   content: "";
   position: fixed;
   top: 0;
