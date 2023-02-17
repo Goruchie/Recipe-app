@@ -34,7 +34,8 @@
 }
 
 .new-recipe-form-li-item,
-.new-food-form-li-item {
+.new-food-form-li-item,
+.inventory-ul-li-item {
     min-width: inherit;
     height: 30px;
 }
@@ -44,7 +45,8 @@
 }
 
 .new-recipe-container ul li .new-recipe-form-li-item::placeholder,
-.new-food-container ul li .new-food-form-li-item::placeholder {
+.new-food-container ul li .new-food-form-li-item::placeholder,
+.inventory-ul-li-item::placeholder {
     padding-left: 10px;
  }
 

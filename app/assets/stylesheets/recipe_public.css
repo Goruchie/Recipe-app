@@ -1,5 +1,6 @@
 .public-recipes-container,
-.recipes-index-container {
+.recipes-index-container,
+.inventory-index-mother-container {
   padding: 0 15vw;
   display: flex;
   flex-direction: column;

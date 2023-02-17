@@ -5,26 +5,28 @@
       <div class="shopping-list-top-div">
         <section>
           <p>Amount of food to buy: <%= hash[:recipe_food_values_count] %> </p>
-          <p>Total value of food needed: <%= hash[:total_amount] %></p>
+          <p>Total value of food needed: $<%= hash[:total_amount] %></p>
         </section>
         <section>
           <p>Recipe: <%= @recipe_name.name %></p>
           <p>Inventory: <%= @inventory_name.name %></p>
         </section>
       </div>
-      <table>
-        <tr>
-          <th>Food</th>
-          <th>Quantity</th>
-          <th>Price</th>
-        </tr>
-        <% hash[:recipe_food_values].each do |key| %>
-        <tr>
-          <td><%= key[:name] %></td>
-          <td><%= key[:quantity] %></td>
-          <td><%= key[:value] %></td>
-        <tr>
+      <div class="shopping-list-table-div">
+        <table>
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+          <% hash[:recipe_food_values].each do |key| %>
+          <tr>
+            <td><%= key[:name] %></td>
+            <td><%= key[:quantity] %></td>
+            <td><%= key[:value] %></td>
+          <tr>
         <%end%>
-      </table>
+        </table>
+      </div>
   </section>
 </div>
