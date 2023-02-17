@@ -10,7 +10,7 @@ class InventoriesFoodController < ApplicationController
   end
 
   def destroy
-    @inventory_food = InventoryFood.find(params[:id])
+    @inventory_food = InventoryFood.includes(:foods, :inventories).find(params[:id])
     @inventory_food.destroy
     redirect_back(fallback_location: root_path)
   end

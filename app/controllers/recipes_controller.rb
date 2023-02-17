@@ -17,14 +17,13 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
-    # @user = @post.author_id
+    @recipe = Recipe.includes(:recipe_foods).find(params[:id])
     @recipe.destroy
     redirect_to recipes_path
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(:recipe_foods).find(params[:id])
     @foods = Food.all
     @recipe_foods = RecipeFood.where(recipe_id: params[:id])
     @inventories = Inventory.all
