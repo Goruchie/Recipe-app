@@ -1,0 +1,26 @@
+<section>
+  <% @recipe_foods.each do |recipe| %>
+    <div class="top-container">
+      <section>
+        <p>Amount of food to buy: InventoryFood-RecipeFood </p>
+        <p>Total value of food needed: </p>
+      </section>
+      <section>
+        <p>Recipe: <%= recipe.recipes.name %> </p>
+        <% @inventory_foods.each do |inventory| %>
+          <p>Inventory: <%= inventory.foods.name %></p>
+          <% food_quantity = recipe.quantity %>
+          <% food_unit_price = recipe.foods.price %>
+          <% if inventory.foods.name != recipe.foods.name %>
+            <p><%= recipe.foods.name %></p>
+            <p><%= food_quantity %></p>
+            <p><%= food_quantity * food_unit_price %></p>
+          <% end %>
+        <% end %>
+        <% if @inventory_foods.empty? %>
+          <p><%= recipe.foods.name %></p>
+        <% end %>
+      </section>
+    </div>
+  <% end %>
+</section>

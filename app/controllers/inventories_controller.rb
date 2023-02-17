@@ -6,7 +6,7 @@ class InventoriesController < ApplicationController
   def destroy
     @inventory = Inventory.find(params[:id])
     @inventory.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_to root_path
   end
 
   def create

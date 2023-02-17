@@ -1,15 +1,15 @@
-<%= form_with url: shopping_list_path(recipe_id: @recipe, inventory_id: 1), method: :get, id: "shopping-form" do |form| %>
+<%= form_with url: shopping_list_path(recipe_id: @recipe), method: :get, id: "shopping-form" do |form| %>
   <%= form.select :inventory_id, @inventories.collect { |inventory| [inventory.name, inventory.id] }, { :prompt => 'Choose an Inventory'}, required: true %>
   <%= form.submit "Generate"%>
 <% end %>
 
 <script>
-  var form = document.getElementById("shopping-form");
+  const form = document.getElementById("shopping-form");
 
-  var select = form.elements["shopping_list[inventory_id]"];
+  const select = form.elements["shopping_list[inventory_id]"];
 
   select.addEventListener("change", function() {
-    var inventoryId = select.value;
+    const inventoryId = select.value;
 
     form.action = "<%= shopping_list_path(recipe_id: @recipe) %>?" + "inventory_id=" + inventoryId;
   });
