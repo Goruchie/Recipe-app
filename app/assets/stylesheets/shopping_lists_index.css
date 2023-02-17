@@ -1,0 +1,17 @@
+.shopping-list-mother-div {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20vw;
+}
+
+.shopping-list-mother-div h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.shopping-list-top-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

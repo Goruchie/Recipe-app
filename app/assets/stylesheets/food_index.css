@@ -1,4 +1,17 @@
-td,
-th {
-  border: 1px solid black;
+.food-index-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 20vw;
 }
+
+.food-index-container section {
+  display: flex;
+  justify-content: center;
+}
+
+/* .food-index-container table tr th {
+  border: 2px solid #000;
+} */

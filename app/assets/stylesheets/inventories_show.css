@@ -20,21 +20,34 @@
   justify-content: flex-end;
 }
 
-.show-table-container {
+.show-table-container,
+.food-index-container table {
   border: 2px solid #000;
 }
 
-.show-table-container table {
+.show-table-container table,
+.food-index-container table {
   width: 100%;
 }
 
-.show-table-container table tbody {
+/* .show-table-container table tbody,
+.food-index-container table tbody {
   border: 2px solid #000;
+} */
+
+.show-table-container table tr th,
+.food-index-container table tr th,
+.food-index-container table tr td,
+.show-table-container table tr td {
+  text-align: left;
+  border: 2px solid #000;
+  padding-left: 20px;
 }
 
-.show-table-container table tr th {
-  text-align: left;
-}
+/* .show-table-container table tr th:nth-child(4),
+.food-index-container table tr th:nth-child(4) {
+  border-right: none;
+} */
 
 .show-table-container table tr td button {
   border: none;
