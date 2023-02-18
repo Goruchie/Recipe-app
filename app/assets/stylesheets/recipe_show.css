@@ -1,0 +1,122 @@
+.recipes-show-mother-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 18vw;
+}
+
+.recipe-show-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recipe-show-header {
+  text-align: center;
+}
+
+.public-btn-header-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.public-btn-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.public-private-btn {
+  background-color: green;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+.public-private-btn-close {
+  background-color: red;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+.public-private-label {
+  padding-right: 10px;
+}
+
+.cooktime-desc-btn-div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shoppinglist-ingredient-btn-div {
+  padding: 40px 20px 20px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px solid #000;
+}
+
+.shoppinglist-ingredient-btn-div button {
+  font-size: 1rem;
+  word-spacing: 10px;
+  letter-spacing: 3px;
+  border: 2px solid #000;
+  box-shadow: 3px 5px 5px #000;
+}
+
+.close_btn,
+.shopping_close_btn {
+  align-self: flex-end;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+
+.modal,
+.modal_shopping {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  width: 35%;
+}
+
+.modal::before,
+.modal_shopping::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px); /* for Safari */
+  z-index: -1;
+}

@@ -1,0 +1,100 @@
+<div class="recipes-show-mother-container">
+<section class="recipe-show-container">
+  <h1 class="recipe-show-header">Recipe <%= @recipe.name %> </h1>
+  <div class="public-btn-header-div">
+    <h1>Preparation Time: <%= @recipe.preparation_time %> </h1>
+    <section class="public-btn-div">
+      <h3 class="public-private-label">Change to:</h3>
+      <% if @recipe.public %>
+        <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn-close"  %>
+      <% else %>
+        <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn"  %>
+      <% end %>
+    </section>
+  </div>
+  <div class="cooktime-desc-btn-div">
+   <h2>Cooking Time: <%= @recipe.cooking_time %> </h2>
+   <p> <%= @recipe.description %> </p>
+   <section class="shoppinglist-ingredient-btn-div">
+  <% if can? :create, @recipe %>
+    <button class="gen_shopping_btn">Generate shopping list</button>
+    <button class="click_btn">Add ingredient</button>
+  <% end %>
+  </section>
+  </div>
+</section>
+<section class="show-table-container">
+    <table>
+  <tr>
+    <th>Food</th>
+    <th>Quantity</th>
+    <th>Value</th>
+    <th>Actions</th>
+  </tr>
+  <% @recipe_foods.each do |recipe_food| %>
+    <tr>
+      <td><%= recipe_food.foods.name%></td>
+      <td><%= recipe_food.quantity%></td>
+      <td><%= recipe_food.quantity * recipe_food.foods.price %>$</td>
+      <td>
+      <% if can? :edit, @recipe %>
+        <button>Modify</button>
+      <% end %>
+      <% if can? :destroy, @recipe %>
+        <%= button_to 'Delete', delete_recipe_food_path(:recipe_food_id => recipe_food.id, :recipe_id => params[:id]), method: :delete, data: {turbo_method: :delete} %>
+      <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</section>
+<section class="modal">
+  <div class="modal-content">
+    <button class="close_btn">X</button>
+    <span>Select an ingredient:</span>
+    <%= render 'recipes_food'%>
+  </div>
+</section>
+<section class="modal_shopping">
+  <div class="modal-content">
+    <button class="shopping_close_btn">X</button>
+    <h1>Generating Shopping List:</h1>
+    <p>Choose an inventory to use:</p>
+    <%= render 'shopping_list'%>
+  </div>
+</section>
+</div>
+
+
+
+
+
+<script>
+  document.querySelector('.click_btn').addEventListener('click', (event) => {
+    document.querySelector('.modal').style.visibility = 'visible'
+    document.querySelector('#body').style.overflow = 'hidden'
+  })
+
+  document.querySelector('.close_btn').addEventListener('click', (event) => {
+    document.querySelector('.modal').style.visibility = 'hidden'
+    document.querySelector('#body').style.overflow = 'scroll'
+  })
+
+  // For shopping List
+  document.querySelector('.gen_shopping_btn').addEventListener('click', (event) => {
+    document.querySelector('.modal_shopping').style.visibility = 'visible'
+    document.querySelector('#body').style.overflow = 'hidden'
+  })
+
+  document.querySelector('.shopping_close_btn').addEventListener('click', (event) => {
+    document.querySelector('.modal_shopping').style.visibility = 'hidden'
+    document.querySelector('#body').style.overflow = 'scroll'
+  })
+
+//   document.querySelectorAll('.modal-contents > div:first-of-type > span').forEach(element => {
+//     element.addEventListener('click', () => {
+//     document.querySelector('.recipe-modal').style.display = 'none'
+//     document.querySelector('.shopping-modal').style.display = 'none'
+//   })
+// })
+</script>

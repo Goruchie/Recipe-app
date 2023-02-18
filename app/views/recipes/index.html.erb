@@ -1,0 +1,21 @@
+<div class="recipes-index-container">
+<%= link_to "<button>Create a New recipe</button>".html_safe, new_recipe_path, class: 'add-recipe'%>
+   <% @recipes.each_with_index do |recipe, index| %>
+   <% if can? :read, recipe %>
+      <%= link_to recipe_path(:id => recipe.id) do %>
+      <section class='recipe-index-div'>
+        <div class="recipe-index-title">
+        <h2>Recipe <%= index + 1 %></h2>
+        <% if can? :destroy, recipe %>
+          <%= button_to 'Remove', delete_recipe_path(recipe.id), method: :delete, data: {turbo_method: :delete} %>
+        <%end%>
+        </div>
+        <div class="recipe-index-content">
+            <h1>Description for the recipe</h1>
+            <p><%= recipe.description %></p>
+        </div>
+      </section>
+      <% end %>
+      <% end %>
+   <% end %>
+</div>

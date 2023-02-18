@@ -1,0 +1,13 @@
+<div class="new-food-container">
+    <%= form_with model:Inventory do |form| %>
+    <ul>
+      <li class="inventory-ul-li">
+        <%= form.label :name %>
+        <%= form.text_field :name, placeholder: 'e.g Abubabakar Ummar', value: '', class: "inventory-ul-li-item" %>
+      </li>
+      <li class="inventory-ul-li">
+        <%= form.submit "Create Inventory", class: "submit-btn-inventory"%>
+      </li>
+    </ul>
+    <% end %>
+  </div>

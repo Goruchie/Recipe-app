@@ -1,0 +1,31 @@
+.add-recipe {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.recipe-div {
+  border: 1px solid black;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.recipes-container {
+  display: grid;
+  gap: 1em;
+}
+
+.testing {
+  display: block;
+  position: fixed;
+  width: 40%;
+  background-color: rebeccapurple;
+  height: 50vh;
+}
+
+.recipe-index-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

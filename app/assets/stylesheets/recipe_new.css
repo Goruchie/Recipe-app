@@ -1,0 +1,55 @@
+.new-recipe-container,
+.new-food-container {
+  display: grid;
+  place-content: center;
+  padding-top: 3vh;
+}
+
+.new-recipe-container ul,
+.new-food-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.new-recipe-container ul li,
+.new-food-container ul li {
+  min-width: 30vw;
+  max-width: 60vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-recipe-container ul li:nth-child(5) {
+  min-width: 30vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.new-recipe-container ul li:nth-child(6) .submit-button,
+.new-food-container ul li:nth-child(4) .submit-new-food {
+  width: fit-content;
+  align-self: center;
+  padding: 2px 5px;
+}
+
+.new-recipe-form-li-item,
+.new-food-form-li-item,
+.inventory-ul-li-item {
+  min-width: inherit;
+  height: 30px;
+}
+
+.new-recipe-container ul li:nth-child(4) .new-recipe-form-li-item {
+  min-height: 80px;
+}
+
+.new-recipe-container ul li .new-recipe-form-li-item::placeholder,
+.new-food-container ul li .new-food-form-li-item::placeholder,
+.inventory-ul-li-item::placeholder {
+  padding-left: 10px;
+}
+
+.new-recipe-container ul li:nth-child(4) .new-recipe-form-li-item::placeholder {
+  padding: 10px;
+}

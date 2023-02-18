@@ -1,0 +1,4 @@
+.inventory-ul-li:nth-child(2) .submit-btn-inventory {
+  width: fit-content;
+  align-self: center;
+}

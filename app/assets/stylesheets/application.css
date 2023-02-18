@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  padding: 0.8em;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 0.8em;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.main-container {
+  padding: 2em;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.generate-shopping-list-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal_shopping .modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.see-inventories {
+  min-width: 80%;
+}
+
+.prompt-code-reviewer {
+  border: 2px dotted red;
+  width: 200px;
+}
+
+.devise-login-container {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+}

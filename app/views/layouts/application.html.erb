@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecipeApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body id="body">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+    <%= value %>
+      </div>
+   <% end %>
+    <% if !user_signed_in? %>
+      <%= render "shared/header_new_user" %>
+    <%end%>
+    <% if user_signed_in? %>
+      <%= render "shared/header" %>
+    <%end%>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class="main-container">
+    <%= yield %>
+    </div>
+  </body>
+</html>

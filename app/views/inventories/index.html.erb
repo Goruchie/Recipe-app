@@ -1,0 +1,25 @@
+<section class="inventory-index-mother-container">
+  <div class="create-inventory-btn-div">
+    <%= link_to "<button>Create Inventory</button>".html_safe, new_inventory_path, class: 'add-food'%>
+  </div>
+  <div class="inventories-body">
+    <% @inventories.each do |inventory| %>
+    <%= link_to inventory_path(:id => inventory.id) do %>
+    <section class="inventories-container">
+        <div class="inventory-name-btn-div">
+          <h1><%= inventory.name %> </h1>
+          <%= button_to 'Remove', delete_inventory_path(inventory.id), method: :delete, data: {turbo_method: :delete} %>
+        </div>
+        <div>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              It has survived not only five centuries, but also the leap
+            </p>
+        </div>
+    </section>
+    <% end %>
+    <% end %>
+  </div>
+</section>

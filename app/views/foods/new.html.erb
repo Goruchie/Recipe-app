@@ -1,0 +1,21 @@
+<div class="new-food-container">
+  <%= form_with model:Food do |form| %>
+  <ul>
+    <li class="new-food-form-li">
+      <%= form.label :name %>
+      <%= form.text_field :name, placeholder: 'e.g Marcos Gualtero', value: '', class: "new-food-form-li-item" %>
+    </li>
+    <li class="new-food-form-li">
+      <%= form.label :measurement_unit %>
+      <%= form.text_field :measurement_unit, placeholder: 'e.g kg / grams', class: "new-food-form-li-item" %>
+    </li>
+    <li class="new-food-form-li">
+      <%= form.label :price %>
+      <%= form.number_field :price, placeholder: 'e.g $10 / $30', in: 1.0..100.0, class: "new-food-form-li-item"  %>
+    </li>
+    <li class="new-food-form-li-item">
+      <%= form.submit "Create Food", class: "submit-new-food"%>
+    </li>
+  </ul>
+  <% end %>
+</div>

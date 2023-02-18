@@ -1,0 +1,8 @@
+<nav>
+  <%= current_user.email %>
+  <%= link_to "Recipes", recipes_path, class: 'btn' %>
+  <%= link_to "Food", foods_index_path, class: 'btn' %>
+  <%= link_to "Inventory", inventories_path, class: 'btn' %>
+  <%= link_to "Public Recipes", public_recipes_path, class: 'btn' %>
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'btn'  %>
+</nav>

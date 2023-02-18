@@ -1,0 +1,37 @@
+.public-recipes-container,
+.recipes-index-container,
+.inventory-index-mother-container {
+  padding: 0 15vw;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.public-recipes-header {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.public-recipe-div,
+.recipe-index-div {
+  display: grid;
+  grid-template-columns: 1.5fr 3.5fr;
+  border: 2px solid #000;
+  padding: 20px 20px 50px 20px;
+}
+
+.public-recipe-title,
+.recipe-index-title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+
+.public-recipe-content p,
+.recipe-index-content p {
+  font-size: 1.2rem;
+  font-weight: 530;
+}

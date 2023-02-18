@@ -1,0 +1,29 @@
+<div class="new-recipe-container">
+  <%= form_with model:Recipe do |form| %>
+  <ul>
+    <li>
+      <%= form.label :name, class: "custom-control-label" %>
+      <%= form.text_field :name, placeholder: 'e.g Diego Garcia', value: '', class: "new-recipe-form-li-item" %>
+    </li>
+    <li>
+      <%= form.label :preparation_time, class: "custom-control-label" %>
+      <%= form.text_field :preparation_time, placeholder: 'e.g 2 hours', class: "new-recipe-form-li-item" %> 
+    </li>
+    <li>
+      <%= form.label :cooking_time, class: "custom-control-label" %>
+      <%= form.text_field :cooking_time, placeholder: 'e.g 40 minutes', class: "new-recipe-form-li-item" %> 
+    </li>
+    <li>
+      <%= form.label :description, class: "custom-control-label" %>
+      <%= form.text_area :description, placeholder: 'Write down the steps to prepare this recipe here.', value: '', class: "new-recipe-form-li-item" %> 
+    </li>
+    <li>
+      <%= form.label :public, class: "custom-control-label" %>:
+      <%= form.check_box :public, class: "custom-control-input", id: "customSwitch1" %>
+    </li>
+    <li>
+      <%= form.submit "Create Recipe", class:"submit-button"%>
+    </li>
+  </ul>
+  <% end %>
+</div>

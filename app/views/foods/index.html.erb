@@ -1,0 +1,37 @@
+<div class="food-index-container">
+  <section>
+    <%= link_to "<button>Add Food</button>".html_safe, new_food_path, class: 'add-food'%>
+  </section>
+  <table>
+    <tr>
+      <th>
+        Food
+      </th>
+      <th>
+        Measurement Unit
+      </th>
+      <th>
+        Price
+      </th>
+      <th>
+        Actions
+      </th>
+    </tr>
+    <% @foods.each do |f| %>
+      <tr>
+        <td>
+          <%= f.name%>
+        </td>
+        <td>
+          <%= f.measurement_unit %>
+        </td>
+        <td>
+          $<%= f.price %>
+        </td>
+        <td>
+          <%= button_to 'Delete', food_path(f.id), method: :delete, data: {turbo_method: :delete} %>
+        </td>
+      </tr>
+    <%end%>
+  </table>
+</div>

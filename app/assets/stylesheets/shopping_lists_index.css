@@ -1,0 +1,39 @@
+.shopping-list-mother-div,
+.shopping-list-top-div section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 15vw;
+}
+
+.shopping-list-mother-div h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.shopping-list-top-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.shopping-list-top-div section {
+  padding: 0 10px;
+  gap: 10px;
+}
+
+.shopping-list-top-div section p {
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+
+.shopping-list-table-div {
+  display: flex;
+  justify-content: center;
+}
+
+.shopping-list-table-div table {
+  margin-top: 2vh;
+  width: 60%;
+}
