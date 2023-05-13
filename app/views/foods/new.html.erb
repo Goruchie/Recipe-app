@@ -1,6 +1,6 @@
 <div class="new-food-container">
   <%= form_with model:Food do |form| %>
-  <ul>
+  <ul class="">
     <li class="new-food-form-li">
       <%= form.label :name %>
       <%= form.text_field :name, placeholder: 'e.g Marcos Gualtero', value: '', class: "new-food-form-li-item" %>
@@ -13,8 +13,8 @@
       <%= form.label :price %>
       <%= form.number_field :price, placeholder: 'e.g $10 / $30', in: 1.0..100.0, class: "new-food-form-li-item"  %>
     </li>
-    <li class="new-food-form-li-item">
-      <%= form.submit "Create Food", class: "submit-new-food"%>
+    <li class="flex flex-col justify-center items-center">
+      <%= form.submit "Create Food", class: "rounded-md border-2 border-black cursor-pointer hover:bg-black hover:text-white w-[50%] py-2 px-2"%>
     </li>
   </ul>
   <% end %>

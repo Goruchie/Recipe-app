@@ -1,10 +1,10 @@
 <nav class="flex flex-row justify-between px-8">
   <%= current_user.email %>
   <div class="flex flex-row gap-3 items-center">
-  <%= link_to "Recipes", recipes_path, class: 'hover:underline border-r-2 border-black pr-2' %>
-  <%= link_to "Food", foods_index_path, class: 'hover:underline border-r-2 border-black pr-2' %>
-  <%= link_to "Inventory", inventories_path, class: 'hover:underline border-r-2 border-black pr-2' %>
-  <%= link_to "Public Recipes", public_recipes_path, class: 'hover:underline' %>
-  <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'px-3 py-1 rounded-md'  %>
+    <%= link_to "Recipes", recipes_path, class: 'hover:underline border-r-2 border-black pr-2' %>
+    <%= link_to "Food", foods_index_path, class: 'hover:underline border-r-2 border-black pr-2' %>
+    <%= link_to "Inventory", inventories_path, class: 'hover:underline border-r-2 border-black pr-2' %>
+    <%= link_to "Public Recipes", public_recipes_path, class: 'hover:underline' %>
+    <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'px-3 py-1 rounded-md'  %>
   </div>
 </nav>
