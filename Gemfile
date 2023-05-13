@@ -82,4 +82,4 @@ gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
 
 gem 'cancancan'
 
-gem "tailwindcss-rails", "~> 2.0"
+gem 'tailwindcss-rails', '~> 2.0'
