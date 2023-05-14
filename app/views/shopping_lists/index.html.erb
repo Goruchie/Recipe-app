@@ -1,29 +1,29 @@
-<div class="shopping-list-mother-div">
-  <h1>Shopping lists</h1>
-  <section>
+<div class="flex flex-col justify-center items-center">
+  <h1 class="text-3xl underline underline-offset-8">Shopping List</h1>
+  <section class="flex flex-col justify-center items-center gap-5">
       <% hash = ShoppingList.total_amount(@recipe_foods, @inventory_foods) %>
-      <div class="shopping-list-top-div">
-        <section>
-          <p>Amount of food to buy: <%= hash[:recipe_food_values_count] %> </p>
-          <p>Total value of food needed: $<%= hash[:total_amount] %></p>
+      <div class="flex flex-row wrap gap-[5vw] mt-4 py-10">
+        <section class="text-2xl flex flex-col gap-10">
+          <p>Amount of food to buy: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md"><%= hash[:recipe_food_values_count] %></span></p>
+          <p>Total value of food needed: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md">$<%= hash[:total_amount] %></span></p>
         </section>
-        <section>
-          <p>Recipe: <%= @recipe_name.name %></p>
-          <p>Inventory: <%= @inventory_name.name %></p>
+        <section class="text-2xl flex flex-col gap-10">
+          <p>Recipe: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md"><%= @recipe_name.name %></span></p>
+          <p>Inventory: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md"><%= @inventory_name.name %></span></p>
         </section>
       </div>
-      <div class="shopping-list-table-div">
-        <table>
-          <tr>
-            <th>Food</th>
-            <th>Quantity</th>
-            <th>Price</th>
+      <div class="flex justify-center">
+        <table class="w-full bg-tertiary text-white">
+          <tr class="border-2 flex flex-row wrap">
+            <th class="border-r-black border-r-2 px-10">Food</th>
+            <th class="border-r-black border-r-2 px-10">Quantity</th>
+            <th class="px-10">Price</th>
           </tr>
           <% hash[:recipe_food_values].each do |key| %>
-          <tr>
-            <td><%= key[:name] %></td>
-            <td><%= key[:quantity] %></td>
-            <td><%= key[:value] %></td>
+          <tr class="flex flex-row wrap">
+            <td class=""><%= key[:name] %></td>
+            <td class=""><%= key[:quantity] %></td>
+            <td class=""><%= key[:value] %></td>
           <tr>
         <%end%>
         </table>
