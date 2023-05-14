@@ -12,6 +12,22 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        white: "hsl(0, 0%, 100%)",
+        primary: "#744D17",
+        secondary: "#202020",
+        tertiary: "#484848",
+      },
+      screens: {
+        // => @media (min-width: 481px) { ... }
+        tablet: "481px",
+
+        // => @media (min-width: 769px) { ... }
+        laptop: "769px",
+
+        // => @media (min-width: 1025px) { ... }
+        desktop: "1025px",
+      },
     },
   },
   plugins: [
