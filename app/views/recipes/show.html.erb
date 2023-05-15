@@ -1,19 +1,19 @@
 <div class="flex flex-col justify-center items-center px-[15vw] gap-5">
 <section class="flex flex-col gap-7">
   <h1 class="text-3xl underline underline-offset-8 text-center">Recipe <%= @recipe.name %> </h1>
-  <div class="flex flex-row justify-between items-center text-xl gap-10">
-    <h1>Preparation Time: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md"><%= @recipe.preparation_time %></span></h1>
-    <section class="public-btn-div">
+  <div class="flex flex-col desktop:flex-row desktop:justify-between justify-start desktop:items-center text-xl gap-10">
+    <h1>Preparation Time: <span class="bg-yellow-500 text-white px-2 py-1 rounded-md"><%= @recipe.preparation_time %></span></h1>
+    <section class="flex flex-row desktop:justify-center justify-between items-center gap-5">
       <h3 class="public-private-label">Change to:</h3>
       <% if @recipe.public %>
-        <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn-close"  %>
+        <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "rounded-md bg-red-400 shadow-md text-white shadow-tertiary"  %>
       <% else %>
-        <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn"  %>
+        <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "rounded-md shadow-md bg-green-400 text-white shadow-tertiary"  %>
       <% end %>
     </section>
   </div>
   <div class="flex flex-col gap-5 text-xl">
-   <h2>Cooking Time: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md"><%= @recipe.cooking_time %></span></h2>
+   <h2 class="flex flex-row justify-between items-center desktop:justify-start desktop:gap-5">Cooking Time: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md"><%= @recipe.cooking_time %></span></h2>
    <p> <%= @recipe.description %> </p>
    <section class="flex flex-row justify-between border-b-2 border-black pt-[40px] px-[20px] pb-[20px]">
   <% if can? :create, @recipe %>

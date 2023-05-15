@@ -1,10 +1,10 @@
-<div class="flex flex-col px-[15vw] gap-5">
+<div class="flex flex-col desktop:px-[15vw] gap-5">
   <h1 class="self-end w-fit px-5 py-3 shadow-sm shadow-secondary bg-yellow-500 text-white">Public Recipes</h1>
   <% @public_recipes.each do |public_recipe| %>
   <%= link_to recipe_path(:id => public_recipe.id) do %>
     <section class='border-2 border-black py-2 px-3 shadow-lg shadow-secondary hover:scale-125 hover:m-5 hover:ease-in hover:duration-300 hover:px-10 hover:py-7'>
       <div class="flex flex-row justify-between items-center">
-        <h1 class="bg-primary text-white py-2 px-4 text-l"><%= public_recipe.name %></h1>
+        <h1 class="bg-primary text-white py-2 px-4 text-xs desktop:text-xl"><%= public_recipe.name %></h1>
         <h2>By: <%= public_recipe.users.name %></h2>
       </div>
       <div class="public-recipe-content">
