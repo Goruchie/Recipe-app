@@ -1,6 +1,6 @@
-<nav class="flex flex-row justify-between px-8">
+<nav class="flex flex-row justify-between flex-wrap items-center px-8 bg-primary m-0 text-white py-4 shadow-lg shadow-secondary desktop:px-[12vw]">
   <%= current_user.email %>
-  <div class="flex flex-row gap-3 items-center">
+  <div class="flex flex-row gap-3 items-center flex-wrap m-0">
   <%= link_to "Recipes", recipes_path, class: 'hover:underline border-r-2 border-black pr-2' %>
   <%= link_to "Food", foods_index_path, class: 'hover:underline border-r-2 border-black pr-2' %>
   <%= link_to "Inventory", inventories_path, class: 'hover:underline border-r-2 border-black pr-2' %>
