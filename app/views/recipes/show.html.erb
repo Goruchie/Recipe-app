@@ -26,17 +26,17 @@
 <section class="flex justify-center">
     <table class="w-full bg-tertiary text-white min-w-sixty desktop:min-w-[50vw] justify-center items-center border-2">
   <tr>
-    <th class="border-r-2 text-left pl-20">Food</th>
-    <th class="border-r-2 text-left pl-20">Quantity</th>
-    <th class="border-r-2 text-left pl-20">Value</th>
-    <th class="text-left pl-20">Actions</th>
+    <th class="border-r-2 text-center desktop:text-left desktop:pl-20 px-3">Food</th>
+    <th class="border-r-2 text-center desktop:text-left desktop:pl-20 px-3">Quantity</th>
+    <th class="border-r-2 text-center desktop:text-left desktop:pl-20 px-3">Value</th>
+    <th class="text-center desktop:text-left desktop:pl-20 px-3">Actions</th>
   </tr>
   <% @recipe_foods.each do |recipe_food| %>
     <tr class="bg-white text-black">
-      <td class="border-r-2 border-b-2 text-left pl-20"><%= recipe_food.foods.name%></td>
-      <td class="border-r-2 border-b-2 text-left pl-20"><%= recipe_food.quantity%></td>
-      <td class="text-left border-r-2 border-b-2 pl-20"><%= recipe_food.quantity * recipe_food.foods.price %>$</td>
-      <td class="text-left border-b-2 pl-20 flex flex-row justify-around items-center py-3">
+      <td class="border-r-2 p-3 border-b-2 text-center desktop:text-left desktop:pl-20"><%= recipe_food.foods.name%></td>
+      <td class="border-r-2 p-3 border-b-2 text-center desktop:text-left desktop:pl-20"><%= recipe_food.quantity%></td>
+      <td class="text-center p-3 desktop:text-left border-r-2 border-b-2 desktop:pl-20"><%= recipe_food.quantity * recipe_food.foods.price %>$</td>
+      <td class="text-center p-3 desktop:text-left border-b-2 desktop:pl-20 flex flex-col gap-3 desktop:flex-row justify-around items-center py-3">
       <% if can? :edit, @recipe %>
         <button class='rounded-md hover:text-white hover:bg-primary'>Modify</button>
       <% end %>
