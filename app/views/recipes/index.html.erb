@@ -1,16 +1,16 @@
-<div class="recipes-index-container">
-<%= link_to "<button>Create a New recipe</button>".html_safe, new_recipe_path, class: 'add-recipe'%>
+<div class="flex flex-col px-[15vw] gap-5">
+<%= link_to "<button class='hover:bg-primary hover:text-white shadow-sm shadow-secondary rounded-md'>Create a New recipe</button>".html_safe, new_recipe_path, class: 'flex justify-end'%>
    <% @recipes.each_with_index do |recipe, index| %>
    <% if can? :read, recipe %>
       <%= link_to recipe_path(:id => recipe.id) do %>
-      <section class='recipe-index-div'>
-        <div class="recipe-index-title">
+      <section class='border-2 border-black py-2 px-3 shadow-lg shadow-secondary hover:scale-125 hover:m-5 hover:ease-in hover:duration-300 hover:px-10 hover:py-7'>
+        <div class="flex flex-row justify-between items-center">
         <h2>Recipe <%= index + 1 %></h2>
         <% if can? :destroy, recipe %>
-          <%= button_to 'Remove', delete_recipe_path(recipe.id), method: :delete, data: {turbo_method: :delete} %>
+          <%= button_to 'Remove', delete_recipe_path(recipe.id), method: :delete, class: 'hover:bg-primary hover:text-white shadow-sm shadow-secondary rounded-md', data: {turbo_method: :delete} %>
         <%end%>
         </div>
-        <div class="recipe-index-content">
+        <div class="flex flex-col gap-3 text-xl">
             <h1>Description for the recipe</h1>
             <p><%= recipe.description %></p>
         </div>

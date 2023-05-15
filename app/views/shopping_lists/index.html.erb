@@ -3,27 +3,27 @@
   <section class="flex flex-col justify-center items-center gap-5">
       <% hash = ShoppingList.total_amount(@recipe_foods, @inventory_foods) %>
       <div class="flex flex-row wrap gap-[5vw] mt-4 py-10">
-        <section class="text-2xl flex flex-col gap-10">
+        <section class="text-2xl flex flex-col gap-10 flex-wrap">
           <p>Amount of food to buy: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md"><%= hash[:recipe_food_values_count] %></span></p>
           <p>Total value of food needed: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md">$<%= hash[:total_amount] %></span></p>
         </section>
-        <section class="text-2xl flex flex-col gap-10">
+        <section class="text-2xl flex flex-col gap-10 flex-wrap">
           <p>Recipe: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md"><%= @recipe_name.name %></span></p>
           <p>Inventory: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md"><%= @inventory_name.name %></span></p>
         </section>
       </div>
       <div class="flex justify-center">
-        <table class="w-full bg-tertiary text-white">
-          <tr class="border-2 flex flex-row wrap">
-            <th class="border-r-black border-r-2 px-10">Food</th>
-            <th class="border-r-black border-r-2 px-10">Quantity</th>
-            <th class="px-10">Price</th>
+        <table class="w-full bg-tertiary text-white min-w-sixty desktop:min-w-[50vw] justify-center items-center">
+          <tr>
+            <th class="border-r-2 text-left pl-20">Food</th>
+            <th class="border-r-2 text-left pl-20">Quantity</th>
+            <th class="text-left pl-20">Price</th>
           </tr>
           <% hash[:recipe_food_values].each do |key| %>
-          <tr class="flex flex-row wrap">
-            <td class=""><%= key[:name] %></td>
-            <td class=""><%= key[:quantity] %></td>
-            <td class=""><%= key[:value] %></td>
+          <tr class="bg-white text-black">
+            <td class="border-r-2 text-left pl-20"><%= key[:name] %></td>
+            <td class="border-r-2 text-left pl-20"><%= key[:quantity] %></td>
+            <td class="text-left pl-20"><%= key[:value] %></td>
           <tr>
         <%end%>
         </table>
