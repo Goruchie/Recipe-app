@@ -1,4 +1,4 @@
-.new-recipe-container,
+/* .new-recipe-container,
 .new-food-container {
   display: grid;
   place-content: center;
@@ -52,4 +52,4 @@
 
 .new-recipe-container ul li:nth-child(4) .new-recipe-form-li-item::placeholder {
   padding: 10px;
-}
+} */

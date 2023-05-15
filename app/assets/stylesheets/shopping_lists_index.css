@@ -26,14 +26,4 @@
 .shopping-list-top-div section p {
   font-weight: 700;
   font-size: 1.7rem;
-}
-
-.shopping-list-table-div {
-  display: flex;
-  justify-content: center;
-}
-
-.shopping-list-table-div table {
-  margin-top: 2vh;
-  width: 60%;
-} */
+}*/
