@@ -18,6 +18,12 @@ module.exports = {
         secondary: "#202020",
         tertiary: "#484848",
       },
+      minWidth: {
+        sixty: "60vw",
+      },
+      padding: {
+        '20': "20px",
+      },
       screens: {
         // => @media (min-width: 481px) { ... }
         tablet: "481px",
