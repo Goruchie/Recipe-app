@@ -2,7 +2,7 @@
 <section class="flex flex-col gap-7">
   <h1 class="text-3xl underline underline-offset-8 text-center">Recipe <%= @recipe.name %> </h1>
   <div class="flex flex-col desktop:flex-row desktop:justify-between justify-start desktop:items-center text-xl gap-10">
-    <h1>Preparation Time: <span class="bg-yellow-500 text-white px-2 py-1 rounded-md"><%= @recipe.preparation_time %></span></h1>
+    <h1 class="flex flex-row justify-between items-center desktop:gap-3">Preparation Time: <span class="bg-yellow-500 text-white px-1 py-1 rounded-md"><%= @recipe.preparation_time %></span></h1>
     <section class="flex flex-row desktop:justify-center justify-between items-center gap-5">
       <h3 class="public-private-label">Change to:</h3>
       <% if @recipe.public %>
