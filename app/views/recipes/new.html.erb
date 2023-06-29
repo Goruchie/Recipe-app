@@ -1,19 +1,19 @@
-<div class="new-recipe-container">
+<div class="grid place-content-center pt-[3vh]">
   <%= form_with model:Recipe do |form| %>
-  <ul>
-    <li>
+  <ul class="flex flex-col gap-5">
+    <li class="flex flex-col min-w-[30vw] max-w-sixty">
       <%= form.label :name, class: "custom-control-label" %>
       <%= form.text_field :name, placeholder: 'e.g Diego Garcia', value: '', class: "new-recipe-form-li-item" %>
     </li>
-    <li>
+    <li class="flex flex-col min-w-[30vw] max-w-sixty">
       <%= form.label :preparation_time, class: "custom-control-label" %>
       <%= form.text_field :preparation_time, placeholder: 'e.g 2 hours', class: "new-recipe-form-li-item" %> 
     </li>
-    <li>
+    <li class="flex flex-col min-w-[30vw] max-w-sixty">
       <%= form.label :cooking_time, class: "custom-control-label" %>
       <%= form.text_field :cooking_time, placeholder: 'e.g 40 minutes', class: "new-recipe-form-li-item" %> 
     </li>
-    <li>
+    <li class="flex flex-col min-w-[30vw] max-w-sixty">
       <%= form.label :description, class: "custom-control-label" %>
       <%= form.text_area :description, placeholder: 'Write down the steps to prepare this recipe here.', value: '', class: "new-recipe-form-li-item" %> 
     </li>
@@ -21,8 +21,8 @@
       <%= form.label :public, class: "custom-control-label" %>:
       <%= form.check_box :public, class: "custom-control-input", id: "customSwitch1" %>
     </li>
-    <li>
-      <%= form.submit "Create Recipe", class:"submit-button"%>
+    <li class="self-center">
+      <%= form.submit "Create Recipe", class:"cursor-pointer border-2 border-black px-3 py-2 shadow-md shadow-tertiary hover:bg-primary hover:text-white"%>
     </li>
   </ul>
   <% end %>

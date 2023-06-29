@@ -1,93 +1,93 @@
-<div class="recipes-show-mother-container">
-<section class="recipe-show-container">
-  <h1 class="recipe-show-header">Recipe <%= @recipe.name %> </h1>
-  <div class="public-btn-header-div">
-    <h1>Preparation Time: <%= @recipe.preparation_time %> </h1>
-    <section class="public-btn-div">
+<div class="flex flex-col justify-center items-center px-[15vw] gap-5">
+<section class="flex flex-col gap-7">
+  <h1 class="text-3xl underline underline-offset-8 text-center">Recipe <%= @recipe.name %> </h1>
+  <div class="flex flex-col desktop:flex-row desktop:justify-between justify-start desktop:items-center text-xl gap-10">
+    <h1 class="flex flex-row justify-between items-center desktop:gap-3">Preparation Time: <span class="bg-yellow-500 text-white px-1 py-1 rounded-md"><%= @recipe.preparation_time %></span></h1>
+    <section class="flex flex-row desktop:justify-center justify-between items-center gap-5">
       <h3 class="public-private-label">Change to:</h3>
       <% if @recipe.public %>
-        <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn-close"  %>
+        <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch, class: "rounded-md bg-red-400 shadow-md text-white shadow-tertiary"  %>
       <% else %>
-        <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "public-private-btn"  %>
+        <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch, class: "rounded-md shadow-md bg-green-400 text-white shadow-tertiary"  %>
       <% end %>
     </section>
   </div>
-  <div class="cooktime-desc-btn-div">
-   <h2>Cooking Time: <%= @recipe.cooking_time %> </h2>
+  <div class="flex flex-col gap-5 text-xl">
+   <h2 class="flex flex-row justify-between items-center desktop:justify-start desktop:gap-5">Cooking Time: <span class="bg-yellow-500 text-white px-3 py-1 rounded-md"><%= @recipe.cooking_time %></span></h2>
    <p> <%= @recipe.description %> </p>
-   <section class="shoppinglist-ingredient-btn-div">
+   <section class="flex flex-row justify-between border-b-2 border-black pt-[40px] px-[20px] pb-[20px]">
   <% if can? :create, @recipe %>
-    <button class="gen_shopping_btn">Generate shopping list</button>
-    <button class="click_btn">Add ingredient</button>
+    <button class="shadow-md shadow-secondary rounded-md hover:bg-primary hover:text-white" id="gen_shopping_btn">Generate shopping list</button>
+    <button class="shadow-md shadow-secondary rounded-md hover:bg-primary hover:text-white" id="click_btn">Add ingredient</button>
   <% end %>
   </section>
   </div>
 </section>
-<section class="show-table-container">
-    <table>
+<section class="flex justify-center">
+    <table class="w-full bg-tertiary text-white min-w-sixty desktop:min-w-[50vw] justify-center items-center border-2">
   <tr>
-    <th>Food</th>
-    <th>Quantity</th>
-    <th>Value</th>
-    <th>Actions</th>
+    <th class="border-r-2 text-center desktop:text-left desktop:pl-20 px-3">Food</th>
+    <th class="border-r-2 text-center desktop:text-left desktop:pl-20 px-3">Quantity</th>
+    <th class="border-r-2 text-center desktop:text-left desktop:pl-20 px-3">Value</th>
+    <th class="text-center desktop:text-left desktop:pl-20 px-3">Actions</th>
   </tr>
   <% @recipe_foods.each do |recipe_food| %>
-    <tr>
-      <td><%= recipe_food.foods.name%></td>
-      <td><%= recipe_food.quantity%></td>
-      <td><%= recipe_food.quantity * recipe_food.foods.price %>$</td>
-      <td>
+    <tr class="bg-white text-black">
+      <td class="border-r-2 p-3 border-b-2 text-center desktop:text-left desktop:pl-20"><%= recipe_food.foods.name%></td>
+      <td class="border-r-2 p-3 border-b-2 text-center desktop:text-left desktop:pl-20"><%= recipe_food.quantity%></td>
+      <td class="text-center p-3 desktop:text-left border-r-2 border-b-2 desktop:pl-20"><%= recipe_food.quantity * recipe_food.foods.price %>$</td>
+      <td class="text-center p-3 desktop:text-left border-b-2 desktop:pl-20 flex flex-col gap-3 desktop:flex-row justify-around items-center py-3">
       <% if can? :edit, @recipe %>
-        <button>Modify</button>
+        <button class='rounded-md hover:text-white hover:bg-primary'>Modify</button>
       <% end %>
       <% if can? :destroy, @recipe %>
-        <%= button_to 'Delete', delete_recipe_food_path(:recipe_food_id => recipe_food.id, :recipe_id => params[:id]), method: :delete, data: {turbo_method: :delete} %>
+        <%= button_to 'Delete', delete_recipe_food_path(:recipe_food_id => recipe_food.id, :recipe_id => params[:id]), method: :delete, class: 'rounded-md hover:text-white hover:bg-primary', data: {turbo_method: :delete} %>
       <% end %>
       </td>
     </tr>
   <% end %>
 </table>
 </section>
-<section class="modal">
-  <div class="modal-content">
-    <button class="close_btn">X</button>
-    <span>Select an ingredient:</span>
+<section class="hidden fixed bg-white min-w-sixty" id="modal">
+  <div id="modal-content" class="hidden py-2 px-5 border-2 border-black flex flex-col shadow-lg rounded-lg shadow-secondary">
+    <button id="close_btn" class="w-[20px] self-end border-0">X</button>
+    <span class="text-2xl">Select An Ingredient:</span>
     <%= render 'recipes_food'%>
   </div>
 </section>
-<section class="modal_shopping">
-  <div class="modal-content">
-    <button class="shopping_close_btn">X</button>
-    <h1>Generating Shopping List:</h1>
-    <p>Choose an inventory to use:</p>
+<section id="modal_shopping" class="hidden fixed bg-white min-w-[40vw]">
+  <div id="modal-shopping-content" class="hidden py-2 px-5 border-2 border-black flex flex-col shadow-lg rounded-lg shadow-secondary">
+    <button id="shopping_close_btn" class="w-[20px] self-end border-0">X</button>
+    <h1 class="text-2xl py-10">Generating Shopping List</h1>
+    <p class="text-xl">Choose an inventory to use:</p>
     <%= render 'shopping_list'%>
   </div>
 </section>
 </div>
 
-
-
-
-
 <script>
-  document.querySelector('.click_btn').addEventListener('click', (event) => {
-    document.querySelector('.modal').style.visibility = 'visible'
-    document.querySelector('#body').style.overflow = 'hidden'
-  })
+  document.querySelector('#click_btn').addEventListener('click', (event) => {
+    document.querySelector('#modal').classList.remove('hidden');
+    document.querySelector('#modal-content').classList.remove('hidden');
+    document.querySelector('#body').style.overflow = 'hidden';
+  });
 
-  document.querySelector('.close_btn').addEventListener('click', (event) => {
-    document.querySelector('.modal').style.visibility = 'hidden'
+  document.querySelector('#close_btn').addEventListener('click', (event) => {
+    document.querySelector('#modal').classList.add('hidden');
+    document.querySelector('#modal-content').classList.add('hidden');
     document.querySelector('#body').style.overflow = 'scroll'
   })
 
-  // For shopping List
-  document.querySelector('.gen_shopping_btn').addEventListener('click', (event) => {
-    document.querySelector('.modal_shopping').style.visibility = 'visible'
+   // For shopping List
+  document.querySelector('#gen_shopping_btn').addEventListener('click', (event) => {
+    document.querySelector('#modal_shopping').classList.remove('hidden');
+    document.querySelector('#modal-shopping-content').classList.remove('hidden');
     document.querySelector('#body').style.overflow = 'hidden'
   })
 
-  document.querySelector('.shopping_close_btn').addEventListener('click', (event) => {
-    document.querySelector('.modal_shopping').style.visibility = 'hidden'
+  document.querySelector('#shopping_close_btn').addEventListener('click', (event) => {
+    document.querySelector('#modal_shopping').classList.add('hidden');
+    document.querySelector('#modal-shopping-content').classList.add('hidden');
     document.querySelector('#body').style.overflow = 'scroll'
   })
 

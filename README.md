@@ -12,7 +12,7 @@
 
 # 📗 Table of Contents
 
-- [📗 Table of Contents](#-table-of-contents)
+- [� Table of Contents](#-table-of-contents)
 - [📖 \[recipe\_app\] ](#-recipe_app-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
