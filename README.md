@@ -17,6 +17,7 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+    - [Screenshot](#screenshot)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -70,6 +71,14 @@
 - **[Use_database_migration_files_to_maintain_database_schema]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Screenshot
+
+![Mobile](app/assets/images/mobile-sc.png)
+![Mobile](app/assets/images/mobile-sc-2.png)
+
+![Desktop](app/assets/images/desk-sc.png)
+![Desktop](app/assets/images/desk-sc-2.png)
 
 <!-- LIVE DEMO -->
 
